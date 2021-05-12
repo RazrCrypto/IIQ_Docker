@@ -1,0 +1,28 @@
+version: '2'
+services:
+        db:
+            image: mysql:5.7
+            container_name: db
+            environment:
+                - MYSQL_USER=identityiq
+                - MYSQL_PASSWORD=identityiq
+                - MYSQL_DATABABASE=identityiq
+                - MYSQL_ROOT_PASSWORD=I@mR00t
+            ports:
+                - "3306:3306"
+            volumes:
+                - '/home/dockeruser/Docker/mysql-data:/var/lib/mysql'
+
+        iiq:
+            build: .   
+            image: sailpoint-iiq
+            container_name: sailpoint-iiq
+            environment:
+                - MYSQL_USER=identityiq
+                - MYSQL_PASSWORD=identityiq
+                - MYSQL_DATABABASE=identityiq
+                - MYSQL_ROOT_PASSWORD=I@mR00t
+            ports:
+                - "8180:8080"
+            depends_on:
+                 - db

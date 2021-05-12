@@ -1,0 +1,7 @@
+Step 1: Ensure docker engine & docker-compose are already installed in your Linux distribution
+Step 2: Clone this repo to a specific location
+Step 3: Go to tomcat_img folder and run the given commands in the text file
+Step 4: Once all artifacts are downloaded, use docker build command to create an image called "tomcatoncentos". No need to run this image as a container
+Step 5: Go to the iiq_docker_img folder, paste the identityiq.war file which you want to deploy in Tomcat
+Step 7: Open the docker-compose.yml file and change the path for db volume i.e., instead of "/home/dockeruser/Docker/mysql-data", replace the appropriate path. Ensure that the folder specified in the path exists.
+Step 8: Run the command: docker-compose up -d && docker-compose logs -f
